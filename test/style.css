@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    margin:0;
+    background: #b9b9b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#botao {
+    height: 60px;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    background: #7289da;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-left: 25px;
+    padding-right: 25px;
+    transition: 0.8s;
+}
+#botao:hover {
+    background: #6073b9;
+}
