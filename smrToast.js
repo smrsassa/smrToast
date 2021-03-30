@@ -11,7 +11,7 @@ function stylizeToast() {
     Object.assign( toast.style, {
         visibility: "visible",
         minWidth : "250px",
-        marginLeft: "-125px",
+        margin: "0px 20px 0px 20px",
         backgroundColor: "#333",
         color: "#fff",
         textAlign: "center",
@@ -19,7 +19,6 @@ function stylizeToast() {
         padding: "16px",
         position: "fixed",
         zIndex: "1",
-        left: "50%",
         bottom: "30px",
         fontSize: "17px",
         cursor: "pointer"
