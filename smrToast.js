@@ -27,13 +27,14 @@ function stylizeToast() {
 }
 
 function animateToast() {
-      toast.animate([
+    toast.animate([
         { opacity: 0 },
         { opacity: 1 },
         { opacity: 0 }
-      ], {
-        duration: 2900
-      });
+    ], {
+        duration: 2900,
+        easing: 'cubic-bezier(0, 1, 1, 0)'
+    });
 }
 
 function myFunction(mensage) {
