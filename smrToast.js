@@ -2,9 +2,12 @@ var toast;
 
 function createToast(mensage) {
     let toastElem = document.createElement("div");
-    toastElem.id = "snackbar";
+    toastElem.id = "smrToast";
     toastElem.innerHTML = mensage;
     toast = toastElem;
+}
+
+function stylizeToast() {
     Object.assign( toast.style, {
         visibility: "visible",
         minWidth : "250px",
@@ -23,14 +26,28 @@ function createToast(mensage) {
     });
 }
 
+function animateToast() {
+      toast.animate([
+        { opacity: 0 },
+        { opacity: 1 },
+        { opacity: 0 }
+      ], {
+        duration: 2900
+      });
+}
+
 function myFunction(mensage) {
     createToast(mensage);
+
+    stylizeToast();
+
+    animateToast();
 
     document.body.insertBefore(toast, document.body.firstChild);
 
     setTimeout( function() {
         document.body.removeChild(toast);
-    }, 2900);
+    }, 2899);
 }
 
 
