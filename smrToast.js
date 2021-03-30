@@ -1,10 +1,9 @@
+var duration = 3000;
+
 var toast;
 
-function createToast(mensage) {
-    let toastElem = document.createElement("div");
-    toastElem.id = "smrToast";
-    toastElem.innerHTML = mensage;
-    toast = toastElem;
+function setDuration( config ) {
+    duration = typeof config.duration !== 'undefined' ? config.duration : duration;
 }
 
 function stylizeToast() {
@@ -31,13 +30,24 @@ function animateToast() {
         { opacity: 1 },
         { opacity: 0 }
     ], {
-        duration: 2900,
-        easing: 'cubic-bezier(0, 1, 1, 0)'
+        duration: duration,
+        easing: 'cubic-bezier(0.1, 1, 1, 0)'
     });
 }
 
-function myFunction(mensage) {
+function createToast(mensage) {
+    let toastElem = document.createElement("div");
+    toastElem.id = "smrToast";
+    toastElem.innerHTML = mensage;
+    toast = toastElem;
+}
+
+function myFunction(mensage, config) {
     createToast(mensage);
+
+    if ( typeof config !== 'undefined' ) {
+        setDuration(config);
+    }
 
     stylizeToast();
 
@@ -47,7 +57,7 @@ function myFunction(mensage) {
 
     setTimeout( function() {
         document.body.removeChild(toast);
-    }, 2899);
+    }, duration);
 }
 
 
