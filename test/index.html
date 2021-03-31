@@ -13,7 +13,10 @@
 	<script src="../smrToast.js"></script>
 	<script>
 	  document.getElementById("botao").onclick = () => {
-	    myFunction("Uma mensagem normal de teste!", {
+	    smrToast("Uma mensagem normal de teste!", {
+			style: {
+				background: "#333"
+			},
 			duration: 5000
 		});
 	  }

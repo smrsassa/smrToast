@@ -38,16 +38,26 @@ function animateToast() {
     });
 }
 
+function addCofiguracoes( config ) {
+
+    if ( typeof config.style !== 'undefined' ) setStyle(config.style);
+        
+    if ( typeof config.duration !== 'undefined' ) setDuration(config.duration);
+
+}
+
+function setStyle( config ) {
+    console.log("config style");
+}
+
 function setDuration( config ) {
-    duration = typeof config.duration !== 'undefined' ? config.duration : duration;
+    duration = typeof config !== 'undefined' ? config : duration;
 }
 
 function smrToast(mensage, config) {
     createToast(mensage);
 
-    if ( typeof config !== 'undefined' ) {
-        setDuration(config);
-    }
+    if ( typeof config !== 'undefined' ) addCofiguracoes( config );
 
     stylizeToast();
 
