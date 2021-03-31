@@ -51,7 +51,7 @@ function setStyle( config ) {
 }
 
 function setDuration( config ) {
-    duration = typeof config !== 'undefined' ? config : duration;
+    duration = config;
 }
 
 function smrToast(mensage, config) {
