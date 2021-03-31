@@ -2,8 +2,11 @@ var duration = 3000;
 
 var toast;
 
-function setDuration( config ) {
-    duration = typeof config.duration !== 'undefined' ? config.duration : duration;
+function createToast(mensage) {
+    let toastElem = document.createElement("div");
+    toastElem.id = "smrToast";
+    toastElem.innerHTML = mensage;
+    toast = toastElem;
 }
 
 function stylizeToast() {
@@ -35,14 +38,11 @@ function animateToast() {
     });
 }
 
-function createToast(mensage) {
-    let toastElem = document.createElement("div");
-    toastElem.id = "smrToast";
-    toastElem.innerHTML = mensage;
-    toast = toastElem;
+function setDuration( config ) {
+    duration = typeof config.duration !== 'undefined' ? config.duration : duration;
 }
 
-function myFunction(mensage, config) {
+function smrToast(mensage, config) {
     createToast(mensage);
 
     if ( typeof config !== 'undefined' ) {
