@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title> SMR | Toast </title>
 
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<!-- Use a button to open the snackbar -->
-	<button id="botao">Mostrar Toast</button>
+	
+	<button id="toastPadrao" class="botao">Toast Padrão</button>
+	<button id="toastDuracao" class="botao">Toast duração alterada</button>
+	<button id="toastEstilo" class="botao">Toast estilo alterado</button>
 
 	<script src="../smrToast.js"></script>
 	<script>
-	  document.getElementById("botao").onclick = () => {
-	    smrToast("Uma mensagem normal de teste!", {
+	  document.getElementById("toastPadrao").onclick = () => {
+	    smrToast("Uma mensagem para testar o toast!");
+	  }
+
+	  document.getElementById("toastDuracao").onclick = () => {
+	    smrToast("Uma mensagem para o toast com duracao alterada!", {
+			duration: 2000
+		});
+	  }
+
+	  document.getElementById("toastEstilo").onclick = () => {
+	    smrToast("Uma mensagem para o toast com estilo alterado!", {
 			style: {
-				background: "#ff0000",
-				color: "#0400ff"
+				background: "#038cfc",
+				color: "#000000",
+				padding: "10px"
 			},
-			duration: 5000
+			duration: 4000
 		});
 	  }
 	</script>
