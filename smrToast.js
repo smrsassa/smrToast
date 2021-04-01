@@ -66,12 +66,12 @@ function setStatus( status ) {
     toastStatus = status;
 }
 
-function smrToast( mensage, config ) {
+function smrToast( mensage, config = {} ) {
     if ( toastStatus === "on" ) return false;
 
     createToast(mensage);
 
-    if ( typeof config !== 'undefined' ) addCofiguracoes( config );
+    addCofiguracoes( config );
 
     stylizeToast();
 
