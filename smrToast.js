@@ -4,8 +4,8 @@ var style = {
     visibility: "visible",
     minWidth : "250px",
     margin: "0px 20px 0px 20px",
-    backgroundColor: "#333",
-    color: "#fff",
+    background: "#000000",
+    color: "#ffffff",
     textAlign: "center",
     borderRadius: "2px",
     padding: "16px",
@@ -26,7 +26,7 @@ function createToast(mensage) {
 }
 
 function stylizeToast() {
-    Object.assign( toast.style, style);
+    Object.assign( toast.style, style );
 }
 
 function animateToast() {
