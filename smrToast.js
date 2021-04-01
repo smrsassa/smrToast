@@ -16,11 +16,15 @@ var style = {
     cursor: "pointer"
 };
 
+var toastStatus = "off";
+
 var toast;
 
-function createToast(mensage) {
+function createToast( mensage ) {
+    setStatus("on");
+
     let toastElem = document.createElement("div");
-    toastElem.id = "smrToast";
+    toastElem.className = "smrToast";
     toastElem.innerHTML = mensage;
     toast = toastElem;
 }
@@ -58,7 +62,13 @@ function setDuration( config ) {
     duration = config;
 }
 
-function smrToast(mensage, config) {
+function setStatus( status ) {
+    toastStatus = status;
+}
+
+function smrToast( mensage, config ) {
+    if ( toastStatus === "on" ) return false;
+
     createToast(mensage);
 
     if ( typeof config !== 'undefined' ) addCofiguracoes( config );
@@ -70,6 +80,10 @@ function smrToast(mensage, config) {
     document.body.insertBefore(toast, document.body.firstChild);
 
     setTimeout( function() {
+        setStatus("off");
+
         document.body.removeChild(toast);
     }, duration);
+
+    return true;
 }
