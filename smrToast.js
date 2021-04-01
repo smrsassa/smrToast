@@ -1,6 +1,5 @@
-var duration = 3000;
-
-var style = {
+const durationDefault = 5000;
+const styleDefault = {
     visibility: "visible",
     minWidth : "250px",
     margin: "0px 20px 0px 20px",
@@ -16,6 +15,9 @@ var style = {
     cursor: "pointer"
 };
 
+var toastDuration;
+var toastStyle = {};
+
 var toastStatus = "off";
 
 var toast;
@@ -30,7 +32,7 @@ function createToast( mensage ) {
 }
 
 function stylizeToast() {
-    Object.assign( toast.style, style );
+    Object.assign( toast.style, toastStyle );
 }
 
 function animateToast() {
@@ -39,12 +41,15 @@ function animateToast() {
         { opacity: 1 },
         { opacity: 0 }
     ], {
-        duration: duration,
+        duration: toastDuration,
         easing: 'cubic-bezier(0.1, 1, 1, 0)'
     });
 }
 
 function addCofiguracoes( config ) {
+
+    toastDuration = durationDefault;
+    Object.assign( toastStyle, styleDefault );
 
     if ( typeof config.style !== 'undefined' ) setStyle(config.style);
         
@@ -54,12 +59,12 @@ function addCofiguracoes( config ) {
 
 function setStyle( config ) {
     for ( const [index, item] of Object.entries( config ) ) {
-        style[index] = item;
+        toastStyle[index] = item;
     };
 }
 
 function setDuration( config ) {
-    duration = config;
+    toastDuration = config;
 }
 
 function setStatus( status ) {
@@ -78,12 +83,12 @@ function smrToast( mensage, config = {} ) {
     animateToast();
 
     document.body.insertBefore(toast, document.body.firstChild);
-
+    
     setTimeout( function() {
         setStatus("off");
 
         document.body.removeChild(toast);
-    }, duration);
+    }, toastDuration);
 
     return true;
 }
