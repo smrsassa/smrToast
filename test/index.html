@@ -12,6 +12,7 @@
 	<button id="toastPadrao" class="botao">Toast Padrão</button>
 	<button id="toastDuracao" class="botao">Toast duração alterada</button>
 	<button id="toastEstilo" class="botao">Toast estilo alterado</button>
+	<button id="toastPosicao" class="botao">Toast posição alterada</button>
 
 	<script src="../smrToast.js"></script>
 	<script>
@@ -32,6 +33,13 @@
 				color: "#000000",
 				padding: "10px"
 			},
+			duration: 4000
+		});
+	  }
+
+	  document.getElementById("toastPosicao").onclick = () => {
+	    smrToast("Uma mensagem para o toast com posição alterada!", {
+			position: "top-right",
 			duration: 4000
 		});
 	  }

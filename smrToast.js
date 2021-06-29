@@ -51,6 +51,8 @@ function addCofiguracoes( config ) {
     toastDuration = durationDefault;
     Object.assign( toastStyle, styleDefault );
 
+    if ( typeof config.position !== 'undefined' ) setPosition(config.position);
+
     if ( typeof config.style !== 'undefined' ) setStyle(config.style);
         
     if ( typeof config.duration !== 'undefined' ) setDuration(config.duration);
@@ -60,6 +62,16 @@ function addCofiguracoes( config ) {
 function setStyle( config ) {
     for ( const [index, item] of Object.entries( config ) ) {
         toastStyle[index] = item;
+    };
+}
+
+function setPosition( config ) {
+    let positions = config.split("-");
+
+    delete toastStyle.bottom;
+
+    for ( const [index, item] of Object.entries( positions ) ) {
+        toastStyle[item] = "30px"
     };
 }
 
